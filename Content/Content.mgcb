@@ -42,7 +42,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Screenshot 2026-01-30 083030.png
+/build:Screenshot 2026-01-30 083030.png;walking.png
 
 #begin Screenshot 2026-01-30 083645.png
 /importer:TextureImporter
@@ -54,5 +54,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Screenshot 2026-01-30 083645.png
+/build:Screenshot 2026-01-30 083645.png;running.png
 
