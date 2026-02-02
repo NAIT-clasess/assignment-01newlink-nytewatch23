@@ -55,6 +55,7 @@ public class Game1 : Game
         backgroundTexture = Content.Load<Texture2D>("pixelforest");
         ballTexture = Content.Load<Texture2D>("ball");
         staticImage = Content.Load<Texture2D>("nonowa");
+        testfont = Content.Load<SpriteFont>("calibri");
 
     }
 
@@ -107,6 +108,7 @@ public class Game1 : Game
         Rectangle sourceRect = new Rectangle(x, 0, frameWidth, frameHeight);
         Rectangle sourceRect2 = new Rectangle(x, 10, frameWidth2, frameHeight2);
         _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight), Color.Wheat);
+        _spriteBatch.DrawString(testfont, "LOL WE GOT PROBLEMS HERE MATE", new Vector2(300, 250), Color.White);
         _spriteBatch.Draw(staticImage, staticPosition, Color.Bisque);
         _spriteBatch.Draw(texture, new  Vector2(200,300), sourceRect, Color.Bisque);
         _spriteBatch.Draw(texture2, new  Vector2(400,300), sourceRect2, Color.Bisque);

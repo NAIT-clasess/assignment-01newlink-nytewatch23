@@ -25,12 +25,12 @@
 /processorParam:TextureFormat=Color
 /build:ball.png
 
-#begin File.spritefont
+#begin calibri.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-/build:File.spritefont;calibri.spritefont
+/build:calibri.spritefont
 
 #begin nonowa.png
 /importer:TextureImporter
