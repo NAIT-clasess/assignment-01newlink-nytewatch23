@@ -17,8 +17,12 @@ public class Game1 : Game
     Texture2D ballTexture;
     Texture2D staticImage; 
     SpriteFont testfont;
+    Texture2D rectangle;
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private Vector2 _position;
+    private Vector2 _dimensions;
+    private float _speed;
 
     int counter = 0;
     int frameWidth = 205;
@@ -40,7 +44,11 @@ public class Game1 : Game
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
-        
+        _position = new Vector2(60f, 80f);
+        _dimensions = new Vector2(250f, 50f);
+
+        _speed = 250f;
+
         
         base.Initialize();
     }
@@ -56,6 +64,8 @@ public class Game1 : Game
         ballTexture = Content.Load<Texture2D>("ball");
         staticImage = Content.Load<Texture2D>("nonowa");
         testfont = Content.Load<SpriteFont>("calibri");
+        rectangle = new Texture2D(GraphicsDevice, 1, 1);
+        rectangle.SetData(new[] { Color.White });
 
     }
 
@@ -92,7 +102,8 @@ public class Game1 : Game
             activeFrame = 0;
         }
         base.Update(gameTime);
-        }       
+        }     
+        Move(gameTime);  
     }
 
     protected override void Draw(GameTime gameTime)
@@ -108,14 +119,30 @@ public class Game1 : Game
         Rectangle sourceRect = new Rectangle(x, 0, frameWidth, frameHeight);
         Rectangle sourceRect2 = new Rectangle(x, 10, frameWidth2, frameHeight2);
         _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight), Color.Wheat);
+        Rectangle rect = new Rectangle(
+            (int)_position.X,
+            (int)_position.Y,
+            (int)_dimensions.X,
+            (int)_dimensions.Y
+        );
         _spriteBatch.DrawString(testfont, "LOL WE GOT PROBLEMS HERE MATE", new Vector2(300, 250), Color.White);
         _spriteBatch.Draw(staticImage, staticPosition, Color.Bisque);
         _spriteBatch.Draw(texture, new  Vector2(200,300), sourceRect, Color.Bisque);
         _spriteBatch.Draw(texture2, new  Vector2(400,300), sourceRect2, Color.Bisque);
+        _spriteBatch.Draw(rectangle, rect, Color.White);
         _spriteBatch.Draw(ballTexture,ballPosition, Color.Bisque);
+
         _spriteBatch.End();
 
         base.Draw(gameTime);
+
+    }
+    private void Move(GameTime gameTime)
+    {
+        float seconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
+        _position.X += _speed * seconds;
+
+        base.Update(gameTime);
 
     }
 }
